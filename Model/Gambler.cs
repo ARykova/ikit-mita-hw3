@@ -19,8 +19,7 @@ namespace Model
             get
             { return _name; }
         }
-
-        //private int _score;
+        
         public int Score { get; protected set; }
 
         public abstract void FetchNewNumber(int i);

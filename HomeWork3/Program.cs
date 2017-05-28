@@ -27,17 +27,16 @@ namespace HomeWork3
 
             Numbertron numbertron = new Numbertron();
             Jay jay = new Jay();
-            SilentBob silentBob = new SilentBob();
-            Random rnd = new Random();
+            SilentBob silentBob = new SilentBob();            
 
-            numbertron.NewNumber += new Numbertron.NewNumberDelegate(jay.FetchNewNumber);
-            numbertron.NewNumber += new Numbertron.NewNumberDelegate(silentBob.FetchNewNumber);
+            numbertron.NewNumber += jay.FetchNewNumber;
+            numbertron.NewNumber += silentBob.FetchNewNumber;
 
             for (int i = 0; i < count; i++)
             {                
-                numbertron.Generate(rnd);
+                numbertron.Generate();
             }
-            
+
             if (jay.Score > silentBob.Score) Console.WriteLine("Победил Джей!");
             if (silentBob.Score > jay.Score) Console.WriteLine("Победил Молчаливый Боб!");
             if (jay.Score == silentBob.Score) Console.WriteLine("Ничья!");

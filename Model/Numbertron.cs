@@ -12,9 +12,12 @@ namespace Model
 
         public event NewNumberDelegate NewNumber;
 
-        public void Generate(Random rnd)
+        private Random _rnd { get; set; }
+
+        public void Generate()
         {
-            NewNumber(rnd.Next());
+            if (_rnd == null) _rnd = new Random();
+            NewNumber(_rnd.Next());
         }
     }
 }
